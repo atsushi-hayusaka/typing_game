@@ -1,0 +1,259 @@
+/* 全体のリセットと基本スタイル */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #74ebd5 0%, #acb6e5 100%);
+    color: #333;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    max-width: 900px; /* キーボード表示を考慮して幅を拡大 */
+    width: 90%;
+    /* フィードインアニメーションを削除 */
+    /* animation: fadeIn 1s ease-in-out; */
+    position: relative;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #4a90e2;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+#word-display {
+    font-size: 2em;
+    margin: 20px 0;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    /* フィードイン関連のトランジションを削除 */
+    /* transition: all 0.3s ease; */
+}
+
+#countdown {
+    font-size: 3em;
+    margin: 20px 0;
+    color: #ff5733;
+    /* フィードインアニメーションを削除 */
+    /* animation: countdownFade 1s ease-in-out forwards; */
+}
+
+.hidden {
+    display: none;
+}
+
+.input-area {
+    margin: 20px 0;
+    position: relative;
+}
+
+#input-area {
+    width: 100%;
+    padding: 15px 20px;
+    font-size: 1.2em;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    outline: none;
+    /* フィードイン関連のトランジションを削除 */
+    /* transition: border-color 0.3s ease, box-shadow 0.3s ease; */
+}
+
+#input-area:focus {
+    border-color: #4a90e2;
+    box-shadow: 0 0 10px rgba(74, 144, 226, 0.5);
+}
+
+#start-button, #restart-button {
+    padding: 12px 25px;
+    font-size: 1.2em;
+    background-color: #4a90e2;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    margin-top: 20px;
+}
+
+#start-button:hover, #restart-button:hover {
+    background-color: #357ab8;
+}
+
+#start-button:active, #restart-button:active {
+    transform: translateY(2px);
+}
+
+#stats {
+    margin-top: 25px;
+    text-align: left;
+    font-size: 1em;
+    /* フィードインアニメーションを削除 */
+    /* animation: fadeInStats 0.5s ease-in-out; */
+}
+
+.stat {
+    margin: 8px 0;
+    font-weight: bold;
+}
+
+.correct {
+    color: #28a745;
+    /* フィードイン関連のトランジションを削除 */
+    /* transition: color 0.3s ease; */
+}
+
+.incorrect {
+    color: #dc3545;
+    /* フィードイン関連のトランジションを削除 */
+    /* transition: color 0.3s ease; */
+}
+
+/* フィードバックセクションのスタイル */
+#feedback {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #ffe6e6;
+    border: 2px solid #ffcccc;
+    border-radius: 10px;
+    /* フィードインアニメーションを削除 */
+    /* animation: fadeInFeedback 0.5s ease-in-out; */
+}
+
+#feedback h2 {
+    font-size: 2em;
+    color: #ff5733;
+    margin-bottom: 15px;
+}
+
+#feedback p {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+/* フレンチキーボードのスタイル */
+#virtual-keyboard {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.keyboard-row {
+    display: flex;
+    margin-bottom: 5px;
+}
+
+.key {
+    width: 40px;
+    height: 40px;
+    margin: 2px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0;
+    font-size: 1em;
+    user-select: none;
+}
+
+.key.active {
+    background-color: #ffeb3b; /* ハイライト色 */
+}
+
+.key.correct {
+    background-color: #4caf50; /* 正解色 */
+}
+
+.key.incorrect {
+    background-color: #f44336; /* 不正解色 */
+}
+
+/* シンプルなレスポンシブデザイン */
+@media (max-width: 768px) {
+    .container {
+        padding: 25px 30px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    #word-display {
+        font-size: 1.8em;
+    }
+
+    #countdown {
+        font-size: 2.5em;
+    }
+
+    #input-area {
+        font-size: 1.1em;
+        padding: 12px 18px;
+    }
+
+    #start-button, #restart-button {
+        font-size: 1.1em;
+        padding: 10px 20px;
+    }
+
+    .stat {
+        font-size: 0.95em;
+    }
+
+    #feedback h2 {
+        font-size: 1.8em;
+    }
+
+    #feedback p {
+        font-size: 1em;
+    }
+
+    .key {
+        width: 30px;
+        height: 30px;
+        font-size: 0.8em;
+    }
+}
+
+/* アニメーションの定義を削除 */
+/*
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes countdownFade {
+    from { opacity: 0; transform: scale(0.5); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeInStats {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInFeedback {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+*/
+
