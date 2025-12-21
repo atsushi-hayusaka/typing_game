@@ -18,35 +18,17 @@
             <div class="stat">Minuteur: <span id="timer">60</span>s</div>
             <div class="stat">Nombre total de mots: <span id="total-words">0</span></div>
             <div class="stat">Nombre de fautes de frappe: <span id="errors">0</span></div>
-            <!-- 「Vitesse de frappe (mots par minute):」の削除 -->
-            <!-- <div class="stat">Vitesse de frappe (mots par minute): <span id="wpm">0</span></div> -->
         </div>
         <div id="feedback" class="hidden">
             <h2>Temps écoulé !</h2>
-            <!-- 「Nombre de mots exacts」の削除 -->
             <p>Vous avez tapé <span id="characters-typed">0</span> caractères au total.</p>
             <p>Nombre de fautes de frappe: <span id="final-errors">0</span></p>
-            <!-- 「Vitesse de frappe (WPM):」の削除 -->
-            <!-- <p>Vitesse de frappe (WPM): <span id="final-wpm">0</span></p> -->
             <button id="restart-button">Redémarrer</button>
         </div>
         
         <!-- フレンチキーボードの追加 -->
         <div id="virtual-keyboard" class="hidden">
-            <!-- 第一行 -->
-            <div class="keyboard-row">
-                <div class="key" data-key="&Agrave;">&Agrave;</div>
-                <div class="key" data-key="&Eacute;">&Eacute;</div>
-                <div class="key" data-key="&Egrave;">&Egrave;</div>
-                <div class="key" data-key="&Ecirc;">&Ecirc;</div>
-                <div class="key" data-key="&Euml;">&Euml;</div>
-                <div class="key" data-key="&Icirc;">&Icirc;</div>
-                <div class="key" data-key="&Ocirc;">&Ocirc;</div>
-                <div class="key" data-key="&Ucirc;">&Ucirc;</div>
-                <div class="key" data-key="&Atilde;">&Atilde;</div>
-                <div class="key" data-key="&atilde;">&atilde;</div>
-            </div>
-            <!-- 第二行 -->
+            <!-- 第一行 (AZERTYUIOP) -->
             <div class="keyboard-row">
                 <div class="key" data-key="A">A</div>
                 <div class="key" data-key="Z">Z</div>
@@ -59,7 +41,7 @@
                 <div class="key" data-key="O">O</div>
                 <div class="key" data-key="P">P</div>
             </div>
-            <!-- 第三行 -->
+            <!-- 第二行 (QSDFGHJKLM) -->
             <div class="keyboard-row">
                 <div class="key" data-key="Q">Q</div>
                 <div class="key" data-key="S">S</div>
@@ -72,7 +54,7 @@
                 <div class="key" data-key="L">L</div>
                 <div class="key" data-key="M">M</div>
             </div>
-            <!-- 第四行 -->
+            <!-- 第三行 (WXCVBN,;!/) -->
             <div class="keyboard-row">
                 <div class="key" data-key="W">W</div>
                 <div class="key" data-key="X">X</div>
@@ -80,10 +62,24 @@
                 <div class="key" data-key="V">V</div>
                 <div class="key" data-key="B">B</div>
                 <div class="key" data-key="N">N</div>
-                <div class="key" data-key="?,">?,</div>
-                <div class="key" data-key=";:">;:</div>
-                <div class="key" data-key="!:!">!:!</div>
+                <div class="key" data-key=",">,</div>
+                <div class="key" data-key=";">;</div>
+                <div class="key" data-key="!">!</div>
                 <div class="key" data-key="/">/</div>
+            </div>
+        </div>
+
+        <!-- 両手の指を模した図の追加 -->
+        <div id="finger-guide" class="hidden">
+            <div class="finger-row">
+                <div class="finger left-pinky" id="left-pinky"></div>
+                <div class="finger left-ring" id="left-ring"></div>
+                <div class="finger left-middle" id="left-middle"></div>
+                <div class="finger left-index" id="left-index"></div>
+                <div class="finger right-index" id="right-index"></div>
+                <div class="finger right-middle" id="right-middle"></div>
+                <div class="finger right-ring" id="right-ring"></div>
+                <div class="finger right-pinky" id="right-pinky"></div>
             </div>
         </div>
     </div>
@@ -91,4 +87,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-
