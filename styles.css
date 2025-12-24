@@ -1,3 +1,4 @@
+/* styles.css */
 /* 全体のリセットと基本スタイル */
 * {
   margin: 0;
@@ -21,7 +22,7 @@ body {
   padding: 30px 40px;
   border-radius: 15px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-  max-width: 900px; /* キーボード表示を考慮して幅を拡大 */
+  max-width: 900px;
   width: 90%;
   position: relative;
 }
@@ -108,14 +109,14 @@ h1 {
 }
 
 .correct {
-  color: #28a745; /* 緑色 */
+  color: #28a745;
 }
 
 .incorrect {
-  color: #f44336; /* 赤色 */
+  color: #f44336;
 }
 
-/* フィードバックセクションのスタイル */
+/* フィードバックセクション */
 #feedback {
   margin-top: 30px;
   padding: 20px;
@@ -135,7 +136,7 @@ h1 {
   margin: 10px 0;
 }
 
-/* フレンチキーボードのスタイル */
+/* Virtual keyboard */
 #virtual-keyboard {
   margin-top: 30px;
   display: flex;
@@ -162,19 +163,20 @@ h1 {
   user-select: none;
 }
 
+/* active は「次に打つべきキー」だけ */
 .key.active {
-  background-color: #ffeb3b; /* ハイライト色（黄色） */
+  background-color: #ffeb3b;
 }
 
 .key.correct {
-  color: #28a745; /* 正解色の文字色 */
+  color: #28a745;
 }
 
 .key.incorrect {
-  color: #f44336; /* ミスタイプ色の文字色 */
+  color: #f44336;
 }
 
-/* 指のガイドのスタイル */
+/* Finger guide */
 #finger-guide {
   margin-top: 30px;
   display: flex;
@@ -184,134 +186,63 @@ h1 {
 .finger-row {
   display: flex;
   justify-content: center;
-  align-items: flex-end; /* 下揃え */
+  align-items: flex-end;
 }
 
 .finger {
-  width: 30px; /* 基本の幅 */
+  width: 30px;
   margin: 0 10px;
   border: 2px solid #333;
-  border-radius: 15px 15px 0 0; /* 上端を丸くする */
+  border-radius: 15px 15px 0 0;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #f0f0f0;
   user-select: none;
-  transition: background-color 0.3s ease, color 0.3s ease;
+
+  /* ★ふわっと禁止：transitionを消す（または 0s にする） */
+  transition: none;
 }
 
-/* 指ごとの高さ設定 */
 .left-pinky,
-.right-pinky {
-  height: 80px; /* 一番縦の長さが短い */
-}
+.right-pinky { height: 80px; }
 
 .left-ring,
-.right-ring {
-  height: 100px; /* 二番目に縦の長さが長い */
-}
+.right-ring { height: 100px; }
 
 .left-middle,
-.right-middle {
-  height: 120px; /* 一番縦の長さが長い */
-}
+.right-middle { height: 120px; }
 
 .left-index,
-.right-index {
-  height: 100px; /* 薬指と同じ縦の長さ */
-}
+.right-index { height: 100px; }
 
-.left-index {
-  margin: 0 30px 0 0;
-}
+.left-index { margin: 0 30px 0 0; }
+.right-index { margin: 0 0 0 30px; }
 
-.right-index {
-  margin: 0 0 0 30px;
-}
-
-/* 指がハイライトされるときのスタイル */
 .finger.active {
-  background-color: #ffeb3b; /* ハイライト色（黄色） */
+  background-color: #ffeb3b;
   color: #333;
 }
 
-.finger.correct {
-  color: #28a745; /* 正解色の文字色 */
-}
+.finger.correct { color: #28a745; }
+.finger.incorrect { color: #f44336; }
 
-.finger.incorrect {
-  color: #f44336; /* 不正解時の文字色 */
-}
-
-/* シンプルなレスポンシブデザイン */
 @media (max-width: 768px) {
-  .container {
-    padding: 25px 30px;
-  }
+  .container { padding: 25px 30px; }
+  h1 { font-size: 2em; }
+  #word-display { font-size: 1.8em; }
+  #countdown { font-size: 2.5em; }
+  #input-area { font-size: 1.1em; padding: 12px 18px; }
+  #start-button, #restart-button { font-size: 1.1em; padding: 10px 20px; }
+  .stat { font-size: 0.95em; }
+  #feedback h2 { font-size: 1.8em; }
+  #feedback p { font-size: 1em; }
 
-  h1 {
-    font-size: 2em;
-  }
+  .key { width: 30px; height: 30px; font-size: 0.8em; }
+  .finger { width: 25px; }
 
-  #word-display {
-    font-size: 1.8em;
-  }
-
-  #countdown {
-    font-size: 2.5em;
-  }
-
-  #input-area {
-    font-size: 1.1em;
-    padding: 12px 18px;
-  }
-
-  #start-button,
-  #restart-button {
-    font-size: 1.1em;
-    padding: 10px 20px;
-  }
-
-  .stat {
-    font-size: 0.95em;
-  }
-
-  #feedback h2 {
-    font-size: 1.8em;
-  }
-
-  #feedback p {
-    font-size: 1em;
-  }
-
-  .key {
-    width: 30px;
-    height: 30px;
-    font-size: 0.8em;
-  }
-
-  .finger {
-    width: 25px; /* 幅を縮小 */
-  }
-
-  /* 指ごとの高さ設定を調整 */
-  .left-pinky,
-  .right-pinky {
-    height: 60px; /* 一番縦の長さが短い */
-  }
-
-  .left-ring,
-  .right-ring {
-    height: 80px; /* 二番目に縦の長さが長い */
-  }
-
-  .left-middle,
-  .right-middle {
-    height: 100px; /* 一番縦の長さが長い */
-  }
-
-  .left-index,
-  .right-index {
-    height: 80px; /* 薬指と同じ縦の長さ */
-  }
+  .left-pinky, .right-pinky { height: 60px; }
+  .left-ring, .right-ring { height: 80px; }
+  .left-middle, .right-middle { height: 100px; }
+  .left-index, .right-index { height: 80px; }
 }

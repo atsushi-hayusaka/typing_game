@@ -1,89 +1,95 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>Typing Game</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <title>Typing Game</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <div class="container">
-        <h1>Typing Game</h1>
-        <div id="word-display">Appuyer sur le bouton de Démarrer</div>
-        <div id="countdown" class="hidden">3</div>
-        <div class="input-area">
-            <input type="text" id="input-area" disabled placeholder="Entrez ici">
-        </div>
-        <button id="start-button">Démarrer</button>
-        <div id="stats" class="hidden">
-            <div class="stat">Minuteur: <span id="timer">60</span>s</div>
-            <div class="stat">Nombre total de mots: <span id="total-words">0</span></div>
-            <div class="stat">Nombre de fautes de frappe: <span id="errors">0</span></div>
-        </div>
-        <div id="feedback" class="hidden">
-            <h2>Temps écoulé !</h2>
-            <p>Vous avez tapé <span id="characters-typed">0</span> caractères au total.</p>
-            <p>Nombre de fautes de frappe: <span id="final-errors">0</span></p>
-            <button id="restart-button">Redémarrer</button>
-        </div>
-        
-        <!-- フレンチキーボードの追加 -->
-        <div id="virtual-keyboard" class="hidden">
-            <!-- 第一行 (AZERTYUIOP) -->
-            <div class="keyboard-row">
-                <div class="key" data-key="A">A</div>
-                <div class="key" data-key="Z">Z</div>
-                <div class="key" data-key="E">E</div>
-                <div class="key" data-key="R">R</div>
-                <div class="key" data-key="T">T</div>
-                <div class="key" data-key="Y">Y</div>
-                <div class="key" data-key="U">U</div>
-                <div class="key" data-key="I">I</div>
-                <div class="key" data-key="O">O</div>
-                <div class="key" data-key="P">P</div>
-            </div>
-            <!-- 第二行 (QSDFGHJKLM) -->
-            <div class="keyboard-row">
-                <div class="key" data-key="Q">Q</div>
-                <div class="key" data-key="S">S</div>
-                <div class="key" data-key="D">D</div>
-                <div class="key" data-key="F">F</div>
-                <div class="key" data-key="G">G</div>
-                <div class="key" data-key="H">H</div>
-                <div class="key" data-key="J">J</div>
-                <div class="key" data-key="K">K</div>
-                <div class="key" data-key="L">L</div>
-                <div class="key" data-key="M">M</div>
-            </div>
-            <!-- 第三行 (WXCVBN,;!/) -->
-            <div class="keyboard-row">
-                <div class="key" data-key="W">W</div>
-                <div class="key" data-key="X">X</div>
-                <div class="key" data-key="C">C</div>
-                <div class="key" data-key="V">V</div>
-                <div class="key" data-key="B">B</div>
-                <div class="key" data-key="N">N</div>
-                <div class="key" data-key=",">,</div>
-                <div class="key" data-key=";">;</div>
-                <div class="key" data-key="!">!</div>
-                <div class="key" data-key="/">/</div>
-            </div>
-        </div>
+  <div class="container">
+    <h1>Typing Game</h1>
 
-        <!-- 両手の指を模した図の追加 -->
-        <div id="finger-guide" class="hidden">
-            <div class="finger-row">
-                <div class="finger left-pinky" id="left-pinky"></div>
-                <div class="finger left-ring" id="left-ring"></div>
-                <div class="finger left-middle" id="left-middle"></div>
-                <div class="finger left-index" id="left-index"></div>
-                <div class="finger right-index" id="right-index"></div>
-                <div class="finger right-middle" id="right-middle"></div>
-                <div class="finger right-ring" id="right-ring"></div>
-                <div class="finger right-pinky" id="right-pinky"></div>
-            </div>
-        </div>
+    <div id="word-display">Appuyer sur le bouton de Démarrer</div>
+    <div id="countdown" class="hidden">3</div>
+
+    <div class="input-area">
+      <input type="text" id="input-area" disabled placeholder="Entrez ici" autocomplete="off" />
     </div>
 
-    <script src="script.js"></script>
+    <button id="start-button">Démarrer</button>
+
+    <div id="stats" class="hidden">
+      <div class="stat">Minuteur: <span id="timer">60</span>s</div>
+      <!-- 表示名はそのままでも、中身は「正解文字数」にする -->
+      <div class="stat">Nombre total de mots: <span id="total-words">0</span></div>
+      <div class="stat">Nombre de fautes de frappe: <span id="errors">0</span></div>
+    </div>
+
+    <div id="feedback" class="hidden">
+      <h2>Temps écoulé !</h2>
+      <p>Vous avez tapé <span id="characters-typed">0</span> caractères au total.</p>
+      <p>Nombre de fautes de frappe: <span id="final-errors">0</span></p>
+      <button id="restart-button">Redémarrer</button>
+    </div>
+
+    <!-- Virtual keyboard -->
+    <div id="virtual-keyboard" class="hidden">
+      <div class="keyboard-row">
+        <div class="key" data-key="A">A</div>
+        <div class="key" data-key="Z">Z</div>
+        <div class="key" data-key="E">E</div>
+        <div class="key" data-key="R">R</div>
+        <div class="key" data-key="T">T</div>
+        <div class="key" data-key="Y">Y</div>
+        <div class="key" data-key="U">U</div>
+        <div class="key" data-key="I">I</div>
+        <div class="key" data-key="O">O</div>
+        <div class="key" data-key="P">P</div>
+      </div>
+
+      <div class="keyboard-row">
+        <div class="key" data-key="Q">Q</div>
+        <div class="key" data-key="S">S</div>
+        <div class="key" data-key="D">D</div>
+        <div class="key" data-key="F">F</div>
+        <div class="key" data-key="G">G</div>
+        <div class="key" data-key="H">H</div>
+        <div class="key" data-key="J">J</div>
+        <div class="key" data-key="K">K</div>
+        <div class="key" data-key="L">L</div>
+        <div class="key" data-key="M">M</div>
+      </div>
+
+      <div class="keyboard-row">
+        <div class="key" data-key="W">W</div>
+        <div class="key" data-key="X">X</div>
+        <div class="key" data-key="C">C</div>
+        <div class="key" data-key="V">V</div>
+        <div class="key" data-key="B">B</div>
+        <div class="key" data-key="N">N</div>
+        <div class="key" data-key=",">,</div>
+        <div class="key" data-key=";">;</div>
+        <div class="key" data-key="!">!</div>
+        <div class="key" data-key="/">/</div>
+      </div>
+    </div>
+
+    <!-- Finger guide -->
+    <div id="finger-guide" class="hidden">
+      <div class="finger-row">
+        <div class="finger left-pinky" id="left-pinky"></div>
+        <div class="finger left-ring" id="left-ring"></div>
+        <div class="finger left-middle" id="left-middle"></div>
+        <div class="finger left-index" id="left-index"></div>
+        <div class="finger right-index" id="right-index"></div>
+        <div class="finger right-middle" id="right-middle"></div>
+        <div class="finger right-ring" id="right-ring"></div>
+        <div class="finger right-pinky" id="right-pinky"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
